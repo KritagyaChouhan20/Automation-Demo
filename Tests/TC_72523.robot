@@ -9,7 +9,7 @@ ${InputName}        Test User
 ${InputMobileNo}    7021736204
 
 ${InputPincode}     400706
-${InputAddress}     Random Area, Some Locality, Imaginary Place
+${InputAddress}     NL1
 ${InputFlatNo}      6801
 
 
@@ -22,50 +22,54 @@ PopUpTest
     Wait For And Click Element    xpath://*[@id="headerAnimate"]/section[2]/section/nav[1]/ul/li[5]/section/a
 
     # Enter Name and Number
-    Wait For And Input Text    xpath:/html/body/div[1]/div[2]/div[1]/section/div[1]/div[2]/div[1]/input    ${InputName}
+    Wait For And Input Text
+    ...    xpath://*[@class="submitNumber_customInput__31K7u j-container"]/div[1]//input
+    ...    ${InputName}
     Enter Number and Proceed
-    ...    xpath:/html/body/div[1]/div[2]/div[1]/section/div[1]/div[2]/div[2]/input
+    ...    xpath://*[@class="submitNumber_customInput__31K7u j-container"]/div[2]//input
     ...    ${InputMobileNo}
-    ...    xpath://*[@id="__next"]/div[2]/div[1]/section/div[2]/button
+    ...    xpath://*[@class="submitNumber_mobButton__EtdLj"]//button
 
     # OTP
     Enter and Verify OTP
 
     # Select Port/Get Sim and Prepaid/Postpaid options
-    Wait For And Click Element    xpath://*[@id="__next"]/div[2]/div/section/section/section/div[1]/div/span[2]
+
+    Wait For And Click Element    xpath://*[@class="j-selectors stretch"]/span[2]
     Wait For And Click Element
-    ...    xpath://*[@id="__next"]/div[2]/div/section/section/section/div[2]/div[2]/div/div/div/label/span[2]
-    Wait For And Click Element    xpath://*[@id="__next"]/div[2]/div/section/div/div
+    ...    xpath:(//*[@class="switch-radio-root"])[1]
+    Wait For And Click Element    xpath://*[@class="selectConnection_mobButton__MW7_w"]/div
 
     # Enter Address
     Wait For And Input Text
-    ...    //*[@id="__next"]/div[2]/div/section/section/section/div/div[1]/div/input
+    ...    xpath://*[@class="pickLocation_pincodeCont__wwINN j-container"]//input
     ...    ${InputPincode}
     Wait For And Input Text
-    ...    xpath://*[@id="__next"]/div[2]/div/section/section/section/div/div[2]/div/div/div[2]/textarea
+    ...    xpath://*[@class="pickLocation_addressCont__PUulw j-container"]//textarea
     ...    ${InputAddress}
-    Exit Address Dropdown
+    Wait Until Element Is Visible    id:addressScrollContent    10s
+    Wait For And Click Element    xpath://*[@id="addressScrollContent"]//section[1]
     Enter Number and Proceed
-    ...    xpath://*[@id="__next"]/div[2]/div/section/section/section/div/div[3]/input
+    ...    xpath://*[@class="j-field input-text"]//input
     ...    ${InputFlatNo}
-    ...    xpath://*[@id="__next"]/div[2]/div/section/div/button
+    ...    xpath://*[@class="pickLocation_mobButton__2fPwI"]//button
 
     # Select Date and Time
-    Wait For And Click Element    xpath://*[@id="__next"]/div[2]/div/section/section/section/div[4]/div/span[2]
+    Wait For And Click Element    xpath://*[@class="SlotChooser_dateSelectors__2hjpK j-selectors"]//span[2]
     Wait For And Click Element
-    ...    xpath://*[@id="__next"]/div[2]/div/section/section/section/section/div[2]/div/div[1]/div[2]/div/div/div/div/section[1]/div/div/label/span[2]
+    ...    xpath://*[@class="customScroll_scroll__1lZUu"]//section[1]//span[2]
     Wait For And Click Element
-    ...    xpath://*[@id="__next"]/div[2]/div/section/section/section/div[5]/button
+    ...    xpath://*[@class="SlotChooser_mobButton__2zzsv"]//button
 
     # Close Survey PopUp
-    Close Popup    xpath:/html/body/section[1]/section/div/div/div/header/button
+    Close Popup    xpath:(//*[@class="j-modal-container"]//button)[1]
 
     # Test View Details PopUps
     FOR    ${index}    IN RANGE    1    3
         ${result}=    Evaluate    ${index} + 1
         Verify View Details
-        ...    xpath://*[@id="__next"]/div[2]/section/div[4]/div[${index}]/div/section/div/div[2]/div/div[2]/div/div[4]/div[3]/button[2]
-        ...    xpath:/html/body/section[${result}]/section/div/div/div/header/button
+        ...    xpath:(//*[@class="Details_flex__3gCbA"])[${index}]//button[2]
+        ...    xpath:(//*[@class="j-modal j-modal-visible j-modal-closable j-modal-size-s planDetailsPopup j-modal-kind-dialog"]//button)[1]
     END
 
     End Web Test
@@ -76,11 +80,9 @@ Enter and Verify OTP
     ${InputOTP}=    Get Value From User    message=Enter OTP
     Wait For And Input Text    id:otp-input    ${InputOTP}
 
-Exit Address Dropdown
-    Wait For And Click Element    xpath://*[@id="__next"]/div[2]/div/section/section/section/div/div[3]/input
-
 Verify View Details
     [Arguments]    ${locator}    ${cross}
     Scroll To    ${locator}
     Open Popup    ${locator}
+    Sleep    3s
     Close Popup    ${cross}

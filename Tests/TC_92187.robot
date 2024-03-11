@@ -36,11 +36,11 @@ RedirectionTest
     Enter Number and Proceed
     ...    id:enterNumber
     ...    ${InputMobileNo}
-    ...    xpath://*[@id="__next"]/div[2]/div/section/div/div[6]/button
+    ...    xpath://*[@class="UBRFlow_mobButton__1Dk4O"]//button
 
     # Test if redirected to the Map Page
     Wait For And Click Element
-    ...    xpath://*[@id="__next"]/div[2]/div/div/section/div[3]/div/div[1]/div/div/div[3]/div[1]/div[2]
+    ...    xpath://*[@class="customAddress_desktopMapStyle__32iBF"]
 
     End Web Test
 
