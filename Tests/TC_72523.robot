@@ -47,7 +47,7 @@ PopUpTest
     Wait For And Input Text
     ...    xpath://*[@class="pickLocation_addressCont__PUulw j-container"]//textarea
     ...    ${InputAddress}
-    Wait Until Element Is Visible    id:addressScrollContent    10s
+    Wait For And Verify Element    id:addressScrollContent
     Wait For And Click Element    xpath://*[@id="addressScrollContent"]//section[1]
     Enter Number and Proceed
     ...    xpath://*[@class="j-field input-text"]//input
