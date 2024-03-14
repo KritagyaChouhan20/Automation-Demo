@@ -1,5 +1,4 @@
-*
 *__pycache__
-!Resources
-!Tests
-!.gitignore
+*.png
+*.html
+*.xml

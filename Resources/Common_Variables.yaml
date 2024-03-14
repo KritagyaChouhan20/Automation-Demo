@@ -1,0 +1,91 @@
+# Below are common variables used for Jio.com web test-automation
+
+Browser: Chrome
+URL: https://www.jio.com/
+Selfcare_URL: https://selfcare.jio.com/
+
+# -------------------------------- For Redirection to respective page  ------------------------------------
+Mobile: xpath=//nav[@id="firstlevel-nav"]//a[normalize-space()="Mobile"]
+True5G: xpath=//nav[@id="firstlevel-nav"]//a[@aria-label='True 5G']
+Fiber: xpath=//nav[@id="firstlevel-nav"]//a[normalize-space()="JioFiber"]
+Shop: xpath=//nav[@id="firstlevel-nav"]//a[normalize-space()='Shop']
+Apps: xpath=//nav[@id="firstlevel-nav"]//a[normalize-space()='Apps']
+Support: xpath=//nav[@id="firstlevel-nav"]//a[normalize-space()='Support']
+
+# ------------------------------- Sub-NavBar Locators -----------------------------------------------------
+#! Shift these to respective POs
+button: //button[@id="AddToCartBTN"]
+Cross: xpath=//a[@aria-label='Close']
+Hyperlink: xpath=//div[contains(@class,'j-modal-visible j-modal-closable')]//div[@class="customScroll_scroll__1lZUu"]
+
+# -------------------------------- URL Lists for Sub-Modules ----------------------------------
+
+#! Rename Variable name on line 26 to Fiber-SubNavbarURLs and make changes in respective POs
+Sub_NavBar_URLs:
+  [
+    "https://www.jio.com/fiber",
+    "https://www.jio.com/selfcare/plans/fiber/fiber-prepaid-plans-home/",
+    "https://www.jio.com/selfcare/plans/fiber/fiber-postpaid-plans-home/",
+    "https://www.jio.com/selfcare/interest/airfiber/",
+    "https://www.jio.com/selfcare/recharge/fiber/",
+    "https://www.jio.com/selfcare/paybill/fiber/",
+    "https://www.jio.com/jcms/jiofiber/services/",
+  ]
+
+#! Rename Variable name on line 28 to Shop-SubNavbarURLs and make changes in respective POs
+Shop_SubNavBar_URL:
+  [
+    "https://www.jio.com/shop/homepage",
+    "https://www.jio.com/shop/en-in/c/smartphones",
+    "https://www.jio.com/shop/en-in/c/smart-devices",
+    "https://www.jio.com/shop/en-in/c/jiofi",
+    "https://www.jio.com/shop/en-in/c/jioaccessories",
+  ]
+
+#! Rename Variable name on line 31 to Support_SubNavbarURLs and make changes in respective POs
+Support_SubNavbarURLs:
+  [
+    https://www.jio.com/selfcare/locate-us/,
+    https://www.jio.com/en-in/track-order,
+    https://www.jio.com/help/contact-us#/,
+  ]
+
+# ------------------------------------ User Input data and dependent files -----------------------------
+Tags_Activity_Location: Resources/Tags.xlsx #Enter Tags.xlsx Full path Also replace Backslash '\' with frontslash '/'
+Fiber_No: 2235914043 #(JioFiber Prepaid Number) (As prepaid shows service id)
+Fiber_Postpaid: 7553506923 #(JioFiber Postpaid Number)
+Incorrect_No1: 1234567890
+Incorrect_No2: 9876543212
+Name: Bond
+
+# List of links to verify the redirection of buttons present under more information section
+Fiber_more_information_URLs:
+  [
+    "https://www.jio.com/en-in/wifi-calling-terms-conditions",
+    "https://www.jio.com/en-in/terms-conditions-international-roaming",
+    "https://jep-asset.akamaized.net/jio/plan/IR-Standard-PayGo-Rates.pdf",
+    "https://jep-asset.akamaized.net/jio/plan/JioFIber-ISD-Packs-21072020_1.pdf",
+    "https://jep-asset.akamaized.net/jio/plan/FTTX-Postpaid-Plan.pdf",
+    "https://jep-asset.akamaized.net/jio/plan/FTTX-Prepaid-Plan-Voucher.pdf",
+  ]
+
+# Need Guidance Buttons' Text
+Need_Guidance_Button_Text: ["Support", "Call us", "Find a store"]
+
+# Need Guidance URL List
+Need_Guidance_URLs:
+  [
+    "https://www.jio.com/help/home#/",
+    "https://www.jio.com/help/contact-us?tab=call#/",
+    "https://www.jio.com/selfcare/locate-us/",
+    "https://www.jio.com/help/home?source=campaign#/",
+    "https://www.jio.com/help/contact-us?tab=call#/",
+    "https://www.jio.com/help/faq?parentId=1407507402270#/",
+    "https://www.jio.com/help/contact-us?tab=call?nav=g#/",
+  ]
+
+# Need Guidance Section title/sub-title subtext
+Need_Guidance_Text: ["Need guidance?", "We’d love to help you."]
+
+# JioMart redirecting variable
+JioMart_Redirect: "JioBharat"
