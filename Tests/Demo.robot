@@ -1,5 +1,5 @@
 *** Settings ***
-Resource    ../Resources/Demo_Page.robot
+Resource    ../Pages/Demo_Page.robot
 
 
 *** Test Cases ***
