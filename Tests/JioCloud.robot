@@ -14,3 +14,15 @@ Resource    ../Pages/JioCloud_Page.robot
 
 # Confirm the redirection on clicking "Read More" button in JioCloud tile.
 #     JioCloud Test Case - 108071
+
+# Confirm the UI elements of JioCloud app's information page.
+#     JioCloud Test Case - 108072
+
+# Confirm on clicking JioCloud banner download pop-up appears.
+#     JioCloud Test Case - 108076
+
+# Confirm the redirection of "Get Now" button present below topmost banner of JioCloud.
+#     JioCloud Test Case - 108073
+
+# Confirm UI elements of "infographics" section of JioCloud.
+#     JioCloud Test Case - 108074
