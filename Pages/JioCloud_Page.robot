@@ -6,7 +6,7 @@ Resource    ../Resources/Common.robot
 
 
 *** Keywords ***
-Click "Get Now" Button
+Click "Get Now" Button and wait for Popup
     [Arguments]    ${locator}
 
     Open Popup    ${locator}
@@ -67,7 +67,7 @@ JioCloud Test Case - 108069
 
     Go to Apps > Utility
 
-    Click "Get Now" Button    xpath:(//*[@id="__next"]//section[7]//ul/li[1]//button)[1]
+    Click "Get Now" Button and wait for Popup    xpath:(//*[@id="__next"]//section[7]//ul/li[1]//button)[1]
 
     # Modal Title
     Wait For And Verify Element    xpath://*[@class="j-modal-container"]//section//h5
@@ -92,13 +92,13 @@ JioCloud Test Case - 108070
     Go to Apps > Utility
 
     FOR    ${index}    IN RANGE    1    4
-        Click "Get Now" Button    xpath:(//*[@id="__next"]//section[7]//ul/li[1]//button)[1]
+        Click "Get Now" Button and wait for Popup    xpath:(//*[@id="__next"]//section[7]//ul/li[1]//button)[1]
         Wait For And Click Element    xpath:(//*[@class="j-modal-container"]//section//button)[${index}]
         Go Back
     END
 
-    Click "Get Now" Button    xpath:(//*[@id="__next"]//section[7]//ul/li[1]//button)[1]
-    Close Popup               xpath://*[@class="j-modal-container"]//header//button
+    Click "Get Now" Button and wait for Popup    xpath:(//*[@id="__next"]//section[7]//ul/li[1]//button)[1]
+    Close Popup                                  xpath://*[@class="j-modal-container"]//header//button
 
     End Web Test
 
@@ -116,10 +116,10 @@ JioCloud Test Case - 108072
     Go to Apps > Utility > JioCloud
 
     # Verify JioCloud Banner
-    Wait For And Verify Element    xpath://*[@id="__next"]//main//section[@role="banner"]
+    Wait For And Verify Element    xpath://section[@role="banner"]
 
     # Verify JioCloud Logo
-    Wait For And Verify Element    xpath://*[@id="__next"]//main//img[@alt="JioCloud logo"]
+    Wait For And Verify Element    xpath://img[@alt="JioCloud logo"]
 
     # Verify Title
     Wait For And Verify Element    xpath:(//*[@id="__next"]//main//h2)[1]
@@ -128,7 +128,7 @@ JioCloud Test Case - 108072
     Wait For And Verify Element    xpath://*[@id="__next"]//main//p
 
     # Verify Get Now Button
-    Wait For And Verify Element    xpath://*[@id="__next"]//main//button[@aria-label="Get JioCloud to start using"]
+    Wait For And Verify Element    xpath://button[@aria-label="Get JioCloud to start using"]
 
     # Verify Infographics
     FOR    ${index}    IN RANGE    1    5
@@ -182,7 +182,7 @@ JioCloud Test Case - 108073
     Go to Apps > Utility > JioCloud
 
     # Verify Get Now Button Redirection
-    Click "Get Now" Button    xpath://*[@id="__next"]//main//button[@aria-label="Get JioCloud to start using"]
+    Click "Get Now" Button and wait for Popup    xpath://*[@id="__next"]//main//button[@aria-label="Get JioCloud to start using"]
 
     End Web Test
 
@@ -203,7 +203,7 @@ JioCloud Test Case - 108074
             ${order}=    Set Variable    style="order: 2;"
 
             # Verify Image
-            Wait For And Verify Element    xpath://*[@id="__next"]/div[2]/main//section[2]/div[${index}]/div[${order}]//img
+            Wait For And Verify Element    xpath://*[@id="__next"]/div[2]/main//section[2]/div[${index}]/div[@${order}]//img
 
             # Verify Title
             Wait For And Verify Element    xpath://*[@id="__next"]/div[2]/main//section[2]/div[${index}]//h3[@class="j-heading j-text-heading-s"]
@@ -222,9 +222,54 @@ JioCloud Test Case - 108076
     Go to Apps > Utility > JioCloud
 
     # Click on JioCloud Banner
-    Open Popup    xpath://*[@id="__next"]//main//section[@role="banner"]
+    Open Popup    xpath://section[@role="banner"]
 
     # Verify Modal
     Wait For And Verify Element    xpath://*[@class="j-modal-container"]
+
+    End Web Test
+
+
+JioCloud Test Case - 108078
+    Begin Web Test
+
+    Go to Apps > Utility > JioCloud
+
+    Scroll To    xpath://section[@aria-label="FAQ"]
+
+    # Verify FAQ section
+    FOR    ${index}    IN RANGE    1    6
+        Wait For And Click Element    xpath://section[@aria-label="FAQ"]//div[@class="j-accordion-panel"][${index}]//i
+        # Wait For And Verify Element    xpath:(//section[@aria-label="FAQ"]//div[@class="j-rich-text j-text"])[${index}]
+        Wait For And Click Element    xpath://section[@aria-label="FAQ"]//div[@class="j-accordion-panel"][${index}]//i
+    END
+
+    End Web Test
+
+
+JioCloud Test Case - 166418
+    Begin Web Test
+
+    Go to Apps > Utility > JioCloud
+
+    # Verify Banner Image
+    Wait For And Verify Element    xpath://section[@role="banner"]//img
+
+    # Verify Banner Text and Name
+    FOR    ${index}    IN RANGE    1    3
+        Wait For And Verify Element    xpath:(//section[@role="banner"]//span)[${index}]
+    END
+
+    # Verify JioCloud logo
+    Wait For And Verify Element    xpath://img[@alt="JioCloud logo"]
+
+    # Verify Title
+    Wait For And Verify Element    xpath:(//*[@id="__next"]//main//h2)[1]
+
+    # Verify Subtext
+    Wait For And Verify Element    xpath://*[@id="__next"]//main//p
+
+    # Verify and Click Get Now Button
+    Click "Get Now" Button and wait for Popup    xpath://button[@aria-label="Get JioCloud to start using"]
 
     End Web Test

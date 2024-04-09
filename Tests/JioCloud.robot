@@ -26,3 +26,9 @@ Resource    ../Pages/JioCloud_Page.robot
 
 # Confirm UI elements of "infographics" section of JioCloud.
 #     JioCloud Test Case - 108074
+
+# Confirm layout and functional elements of "Your files are always safe and secure" and "Store anything, access anywhere" section for JioCloud app's information page.
+#     JioCloud Test Case - 166418
+
+Confirm UI and functionality of "FAQ" section of JioCloud app.
+    JioCloud Test Case - 108078
